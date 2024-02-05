@@ -5,24 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador/Desencriptador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <header>
-        <img src="img/Vector.png" alt="Header Image" style="max-width: 100%;">
-        <h2>Encriptador/Desencriptador</h2>
-    </header>
+
+
     <div class="container">
         <div id="left-container">
-            <textarea id="inputText"></textarea>
+            <img class="logo" src="img/Vector.png" alt="Header Image" style="max-width: 100%;">
+            <textarea id="inputText" placeholder="Ingresa el texto aquí"></textarea>
+            <p id="advertencia"> <i class="fa-solid fa-circle-exclamation"></i> Solo letras minusculas y sin acentos</p>
             <p id="validationMessage" style="color: red;"></p>
-            <button onclick="processText('encrypt')">Encriptar</button>
-            <button onclick="processText('decrypt')">Desencriptar</button>
+            <button id="btn-crypt" onclick="processText('encrypt')">Encriptar</button>
+            <button id="btn-decrypt" onclick="processText('decrypt')">Desencriptar</button>
         </div>
 
         <div id="right-container">
-            <img id="result-image" src="img/imagenencriptador.png" alt="Result Image">
+            <img id="result-image" src="img/imagenencriptador-resultado.png" alt="Result Image">
+            <h2>Ningun mensaje fue encriptado</h2>
+            <p>Ingresa el texto que deseas encriptar o desencriptar</p>
             <p id="result"></p>
             <button id="copyButton" onclick="copyText()" style="display: none;">Copiar</button>
             <p id="copyMessage" style="color: green; display: none;">Texto copiado al portapapeles.</p>

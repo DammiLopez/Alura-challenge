@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador/Desencriptador</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <img src="img/Vector.png" alt="Header Image" style="max-width: 100%;">
+        <h2>Encriptador/Desencriptador</h2>
+    </header>
+    <div class="container">
+        <div id="left-container">
+            <textarea id="inputText"></textarea>
+            <p id="validationMessage" style="color: red;"></p>
+            <button onclick="processText('encrypt')">Encriptar</button>
+            <button onclick="processText('decrypt')">Desencriptar</button>
+        </div>
+
+        <div id="right-container">
+            <img id="result-image" src="img/imagenencriptador.png" alt="Result Image">
+            <p id="result"></p>
+            <button id="copyButton" onclick="copyText()" style="display: none;">Copiar</button>
+            <p id="copyMessage" style="color: green; display: none;">Texto copiado al portapapeles.</p>
+        </div>
+    </div>
+
+
+    <script>
+
+        function encryptText(text) {
+            return text
+                .replace(/E/g, "enter")
+                .replace(/I/g, "imes")
+                .replace(/A/g, "ai")
+                .replace(/O/g, "ober")
+                .replace(/U/g, "ufat");
+        }
+
+        function decryptText(text) {
+            return text
+                .replace(/enter/g, "e")
+                .replace(/imes/g, "i")
+                .replace(/ai/g, "a")
+                .replace(/ober/g, "o")
+                .replace(/ufat/g, "u");
+        }
+
+        function copyText() {
+            let resultText = document.getElementById("result").textContent;
+            let textArea = document.createElement("textarea");
+            textArea.value = resultText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("Texto copiado al portapapeles.");
+        }
+
+        function validateInput(text) {
+            let regex = /^[A-Z\s]+$/;
+            if (!regex.test(text)) {
+                document.getElementById("validationMessage").textContent = "Ingresa solo mayúsculas y palabras sin acentos.";
+                return false;
+            }
+            document.getElementById("validationMessage").textContent = "";
+            return true;
+        }
+
+        function processText(action) {
+            let inputText = document.getElementById("inputText").value.toUpperCase();
+            let resultElement = document.getElementById("result");
+            let resultImage = document.getElementById("result-image");
+            let copyButton = document.getElementById("copyButton");
+
+            // Validar el formato del texto
+            if (!validateInput(inputText)) {
+                return;
+            }
+
+            if (action === "encrypt") {
+                let encryptedText = encryptText(inputText);
+                resultElement.textContent = encryptedText;
+            } else if (action === "decrypt") {
+                let decryptedText = decryptText(inputText);
+                resultElement.textContent = decryptedText;
+            }
+
+            // Mostrar la imagen en el resultado y el botón de copiar
+            resultImage.style.display = "none";
+            copyButton.style.display = "block";
+        }
+
+
+
+        function copyText() {
+            let resultText = document.getElementById("result").textContent;
+            let textArea = document.createElement("textarea");
+            textArea.value = resultText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+
+            // Mostrar el mensaje de éxito debajo del botón "Copiar"
+            let copyMessage = document.getElementById("copyMessage");
+            copyMessage.style.display = "block";
+
+            // Ocultar el mensaje después de 3 segundos
+            setTimeout(function () {
+                copyMessage.style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>

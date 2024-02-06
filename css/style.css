@@ -6,7 +6,7 @@
 body {
   font-family: "Nunito", sans-serif;
   background-color: #f0f5ff;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   height: 100vh;
   width: 100vw;
@@ -28,6 +28,7 @@ body {
 }
 
 textarea {
+  color: #183c72;
   border: none;
   background-color: transparent;
   width: 100%;
@@ -35,11 +36,21 @@ textarea {
   font-size: 25px;
   resize: none;
   padding-top: 30px;
+  padding: 15px;
 }
 
 #advertencia {
   color: rgb(164, 164, 164);
   font-size: 12px;
+}
+
+#validationMessage {
+  background-color: #f0c8c8;
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 50%;
+  margin: 15px auto 15px auto;
+  display: none;
 }
 
 button {
@@ -68,6 +79,17 @@ button {
 
 #btn-decrypt:hover {
   background: #9bbdd2;
+  text-decoration: none;
+}
+
+#copyButton {
+  color: #fff;
+  border-color: transparent;
+  background: #183c72;
+}
+
+#copyButton:hover {
+  background: #1f5374;
   text-decoration: none;
 }
 
@@ -113,6 +135,115 @@ button {
   cursor: pointer;
 }
 
+#resultado-parrafo {
+  overflow: auto;
+  max-height: 100%; /* ajusta la altura máxima según sea necesario */
+  max-width: 80%;
+}
+
 #result-image {
   max-width: 80%;
+}
+
+#result {
+  text-align: left;
+  padding: 20px;
+  max-width: 80%;
+}
+
+#copyMessage {
+  text-align: center;
+  color: rgb(51, 144, 51);
+  background-color: #a0dba6;
+  border: 1px solid rgb(51, 144, 51);
+  border-radius: 10px;
+  width: 25%;
+  margin: 15px auto;
+  padding: 5px;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* responsividad- */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding: 0px;
+  }
+
+  .logo {
+    width: 25px;
+  }
+
+  #result-image {
+    display: none;
+  }
+
+  textarea {
+    width: 100%;
+    height: 100%;
+  }
+
+  #left-container {
+    height: 65avh;
+    width: 100vw;
+    margin-bottom: 100px;
+  }
+
+  #right-container {
+    height: auto;
+    width: 90vw;
+    margin-bottom: 20px;
+  }
+
+  #button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #btn-crypt {
+    width: 50%;
+  }
+  #btn-decrypt {
+    width: 45%;
+  }
+
+  #copyButton {
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px 0px 10px 0px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #left-container {
+    height: 50vh;
+    width: 100vw;
+    margin-bottom: 100px;
+  }
+
+  #right-container {
+    height: 25vh;
+    width: 90vw;
+    margin-bottom: 20px;
+  }
+
+  #button-container {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #btn-crypt {
+    width: 100%;
+  }
+  #btn-decrypt {
+    width: 100%;
+  }
 }

@@ -247,3 +247,240 @@ button {
     width: 100%;
   }
 }
+
+/* configuarcion del modal */
+
+#modalButtons {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 10px;
+  position: fixed; /* Posición fija */
+  top: 20px; /* Distancia desde la parte superior */
+  right: 20px; /* Distancia desde la derecha */
+  z-index: 9999; /* Asegura que esté por encima de otros elementos */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#cerrarModal {
+  display: none; /* Por defecto oculto */
+}
+
+/* Fondo modal: negro con opacidad al 50% */
+.modal {
+  display: none; /* Por defecto, estará oculto */
+  position: fixed; /* Posición fija */
+  z-index: 1; /* Se situará por encima de otros elementos de la página*/
+  padding-top: 200px; /* El contenido estará situado a 200px de la parte superior */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Algura completa */
+  overflow: auto; /* Se activará el scroll si es necesario */
+  background-color: rgba(0, 0, 0, 0.5); /* Color negro con opacidad del 50% */
+}
+
+/* Ventana o caja modal */
+.contenido-modal {
+  position: relative; /* Relativo con respecto al contenedor -modal- */
+  background-color: rgba(255, 255, 255, 0);
+  margin: auto; /* Centrada */
+  padding: 20px;
+  width: 60%;
+  -webkit-animation-name: animarsuperior;
+  -webkit-animation-duration: 0.5s;
+  animation-name: animarsuperior;
+  animation-duration: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animación */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animarsuperior {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* Botón cerrar */
+.close {
+  color: black;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* card */
+.profile_card {
+  width: 310px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 35px 40px;
+  border-radius: 20px;
+  position: relative;
+  background: black;
+  box-shadow: 0px 0px 40px -8px gray;
+}
+
+.user_img {
+  position: absolute;
+  top: -60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_img::before {
+  content: "";
+  position: absolute;
+  height: calc(100% + 10px);
+  width: calc(100% + 10px);
+  border-radius: 50%;
+  background: linear-gradient(45deg, deeppink, deepskyblue);
+  box-shadow: 0px 0px 18px -6px #fff200;
+  animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.user_img img {
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.user_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 14px;
+}
+
+.user_details h5 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin: 12px 0px;
+  font-weight: 600;
+}
+
+.user_details span {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: gray;
+  font-size: 12px;
+}
+
+.user_details p {
+  margin: 12px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 1px;
+  color: gray;
+}
+
+.user_details a {
+  text-decoration: none;
+  background: linear-gradient(45deg, #ff00cc, #333399);
+  color: white;
+  padding: 10px 30px;
+  margin: 14px 0;
+  border-radius: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 14px;
+  box-shadow: 0px 6px 22px -6px gray;
+  transition: 0.3s ease-in-out;
+}
+
+.user_details a:hover {
+  background: transparent;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid darkgray;
+  background: darkgray;
+  margin-bottom: 20px;
+}
+
+.social-media-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-media-icons li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 12px;
+}
+
+.social-media-icons li a {
+  height: 60px;
+  width: 60px;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.social-media-icons li p {
+  font-size: 20px;
+  margin: 11px 0;
+  font-weight: 700;
+}
+
+.social-media-icons li span {
+  font-size: 15px;
+  color: gray;
+  font-weight: 700;
+}

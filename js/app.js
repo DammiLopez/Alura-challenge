@@ -92,3 +92,41 @@ function copyText() {
         copyMessage.style.display = "none";
     }, 3000);
 }
+
+//configuracion para el manejo de la ventana modal
+
+// Ventana modal
+let modal = document.getElementById("ventanaModal");
+
+// Botón que abre el modal
+let boton = document.getElementById("abrirModal");
+
+let cerrarModalBtn = document.getElementById("cerrarModal");
+
+// Hace referencia al elemento <span> que tiene la X que cierra la ventana
+let span = document.getElementsByClassName("cerrar")[0];
+
+// Cuando el usuario hace click en el botón, se abre la ventana
+boton.addEventListener("click", function () {
+    modal.style.display = "block";
+    boton.style.display = "none";
+    cerrarModalBtn.style.display = "block"
+});
+
+cerrarModalBtn.addEventListener("click", function () {
+    cerrarModalBtn.style.display = "none"; // Oculta el botón cerrarModal
+    boton.style.display = "block"; // Muestra el botón abrirModal
+    // ventanaModal.style.display = "none";
+});
+
+// Si el usuario hace click en la x, la ventana se cierra
+span.addEventListener("click", function () {
+    modal.style.display = "none";
+});
+
+// Si el usuario hace click fuera de la ventana, se cierra.
+window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});

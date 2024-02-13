@@ -19,15 +19,11 @@
     <div id="modalButtons">
         <div id="abrirModal"><i class="fa-solid fa-user"></i></div>
         <div id="cerrarModal" class="cerrar">X</div>
-    </div>
-
-    <!-- Ventana modal, por defecto no visiblel -->
-    <!-- <div id="ventanaModal" class="modal">
-        <div class="contenido-modal">
-            <h2>Ventana modal</h2>
-            <p>Esto es el texto de la ventana</p>
+        <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+            <i class="fa-regular fa-sun" id="sunIcon"></i>
+            <i class="fa-regular fa-moon" id="moonIcon" style="display: none;"></i>
         </div>
-    </div> -->
+    </div>
 
     <div id="ventanaModal" class="modal">
         <div class="contenido-modal">
@@ -38,7 +34,6 @@
                 <div class="user_details">
                     <h5>Damian Lopez</h5>
                     <span>Junior Web Developer</span>
-                    <!-- <p>Develop's Dynamic Websites and Design Web Templates.</p> -->
                     <a href="https://github.com/DammiLopez" target="_blank">My Projects</a>
                 </div>
                 <hr>
@@ -46,20 +41,14 @@
                     <li>
                         <a href="#" style="background: linear-gradient(45deg, #2980b9, #2c3e50);"><i
                                 class="fab fa-facebook"></i></a>
-                        <!-- <p>13.8k</p> -->
-                        <!-- <span>Followers</span> -->
                     </li>
                     <li>
                         <a href="#" style="background: linear-gradient(45deg, #00c9ff, #92fe9d);"><i
                                 class="fab fa-twitter"></i></a>
-                        <!-- <p>15.8k</p> -->
-                        <!-- <span>Followers</span> -->
                     </li>
                     <li>
                         <a href="#" style="background: linear-gradient(45deg, #833ab4,#fd1d1d, #fcb045);"><i
                                 class="fab fa-instagram"></i></a>
-                        <!-- <p>30k</p> -->
-                        <!-- <span>Followers</span> -->
                     </li>
                 </ul>
             </div>
@@ -72,7 +61,7 @@
 
     <div class="container">
         <div id="left-container">
-            <img class="logo" src="img/logo.png" alt="Header Image" style="max-width: 100%;">
+            <img class="logo" src="img/logo-dark.png" alt="Header Image" style="max-width: 50px;">
             <textarea id="inputText" placeholder="Ingresa el texto aquí"></textarea>
             <p id="advertencia"> <i class="fa-solid fa-circle-exclamation"></i> Solo letras minusculas y sin acentos</p>
             <p id="validationMessage" style="color: red;">Ingresa solo minúsculas y palabras sin acentos.</p>
@@ -82,8 +71,8 @@
             </div>
         </div>
 
-        <div id="right-container">
-            <img id="result-image" src="img/imagenencriptador-resultado.png" alt="Result Image">
+        <div id="right-container" class="light-result">
+            <img id="result-image" src="img/munieco.png" alt="Result Image">
             <h2 id="titulo-resultado">Ningun mensaje fue encriptado</h2>
             <p id="descripcion-resultado">Ingresa el texto que deseas encriptar o desencriptar</p>
             <div id="resultado-parrafo">

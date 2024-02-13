@@ -1,3 +1,4 @@
+
 function encryptText(text) {
     return text
         .replace(/e/g, "enter")
@@ -130,3 +131,49 @@ window.addEventListener("click", function (event) {
         modal.style.display = "none";
     }
 });
+
+//dark-mode
+function toggleDarkMode() {
+    // Obtenemos el body
+    let body = document.body;
+    let textArea = document.getElementById("inputText");
+    let rightContainer = document.getElementById("right-container");
+
+    rightContainer.classList.toggle("dark-result");
+    // Toggle de una clase para cambiar al modo oscuro
+    body.classList.toggle("dark-mode");
+    textArea.classList.toggle("dark-input-text");
+
+
+
+    // Toggle de los íconos de sol y luna
+    let sunIcon = document.getElementById("sunIcon");
+    let moonIcon = document.getElementById("moonIcon");
+
+    sunIcon.style.display = (sunIcon.style.display === "none") ? "inline" : "none";
+    moonIcon.style.display = (moonIcon.style.display === "none") ? "inline" : "none";
+
+    // Podemos almacenar el estado del modo oscuro en localStorage
+    let isDarkMode = body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode);
+}
+
+// Verificamos si el usuario ya había seleccionado el modo oscuro anteriormente
+let isDarkMode = localStorage.getItem("darkMode");
+let rightContainer = document.getElementById("right-container");
+if (isDarkMode === "true") {
+    // Si el usuario había seleccionado el modo oscuro, lo aplicamos al cargar la página
+    document.body.classList.add("dark-mode");
+    rightContainer.classList.toggle("dark-result");
+
+    // Cambiamos los íconos a luna (modo oscuro)
+    let sunIcon = document.getElementById("sunIcon");
+    let moonIcon = document.getElementById("moonIcon");
+
+    sunIcon.style.display = "none";
+    moonIcon.style.display = "inline";
+
+}
+
+toggleDarkMode();
+toggleDarkMode();
